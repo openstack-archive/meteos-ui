@@ -1,0 +1,76 @@
+<div ng-controller="createDatasetSpecController as ctrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-method">
+          <translate>Method</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <div class="form-field">
+          <div class="btn-group">
+            <label class="btn btn-default"
+                    ng-repeat="option in ctrl.datasetMethodOptions"
+                    ng-model="model.newDatasetSpec.method"
+                    uib-btn-radio="option.value">{$ ::option.label $}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-source-dataset-url">
+          <translate>Source Dataset URL</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-source-dataset-url" type="text" class="form-control" id="dataset-source-dataset-url"
+               ng-model="model.newDatasetSpec.source_dataset_url"
+               ng-required="true"
+               placeholder="{$ 'URL of Dataset stored Swift of Internal HDFS.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-params">
+          <translate>Params</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-params" type="text" class="form-control" id="dataset-params"
+               ng-model="model.newDatasetSpec.params"
+               placeholder="{$ 'Parameters when parsing dataset.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-swift-tenant">
+          <translate>Swift Tenant</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-swift-tenant" type="text" class="form-control" id="dataset-swift-tenant"
+               ng-model="model.newDatasetSpec.swift_tenant"
+               placeholder="{$ 'Tenant name of Swift.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-swift-username">
+          <translate>Swift User Name</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-swift-username" type="text" class="form-control" id="dataset-swift-username"
+               ng-model="model.newDatasetSpec.swift_username"
+               placeholder="{$ 'User name of Swift.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-swift-password">
+          <translate>Swift User Password</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-swift-password" type="text" class="form-control" id="dataset-swift-password"
+               ng-model="model.newDatasetSpec.swift_password"
+               placeholder="{$ 'Password of Swift User.'|translate $}">
+      </div>
+    </div>
+  </div>
+</div>

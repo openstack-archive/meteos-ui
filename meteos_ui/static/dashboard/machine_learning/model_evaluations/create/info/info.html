@@ -1,0 +1,24 @@
+<div ng-controller="createModelEvaluationInfoController as ctrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="model_evaluation-name" translate>ModelEvaluation Name</label>
+        <input name="model_evaluation-name" type="text" class="form-control" id="model_evaluation-name"
+               ng-model="model.newModelEvaluationSpec.display_name"
+               placeholder="{$ 'Name of the model_evaluation to create.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="model_evaluation-model-id">
+          <translate>Template</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="model_evaluation-model-id" type="text" class="form-control" id="model_evaluation-model-id"
+               ng-model="model.newModelEvaluationSpec.model_id"
+               ng-required="true"
+               placeholder="{$ 'Name or ID of Prediction Model.'|translate $}">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div ng-controller="createExperimentSpecController as ctrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="experiment-key-name">
+          <translate>Key Name</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="experiment-key-name" type="text" class="form-control" id="experiment-key-name"
+               ng-model="model.newExperimentSpec.key_name"
+               ng-required="true"
+               placeholder="{$ 'Number of Master Node.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="experiment-neutron-management-network">
+          <translate>Neutron Management Network</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="experiment-neutron-management-network" type="text" class="form-control" id="experiment-neutron-management-network"
+               ng-model="model.newExperimentSpec.neutron_management_network"
+               ng-required="true"
+               placeholder="{$ 'The UUID of Neutron Management Network.'|translate $}">
+      </div>
+    </div>
+  </div>
+</div>

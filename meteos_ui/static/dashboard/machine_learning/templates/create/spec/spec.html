@@ -1,0 +1,76 @@
+<div ng-controller="createTemplateSpecController as ctrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="template-spark-version">
+          <translate>Spark Version</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="template-spark-version" type="text" class="form-control" id="template-spark-version"
+               ng-model="model.newTemplateSpec.spark_version"
+               ng-required="true"
+               placeholder="{$ 'Version of Apache Spark.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="template-master-nodes-num">
+          <translate>Master Nodes</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="template-master-nodes-num" type="number" min="1" class="form-control" id="template-master-nodes-num"
+               ng-model="model.newTemplateSpec.master_nodes_num"
+               ng-required="true"
+               placeholder="{$ 'Number of Master Node.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="template-master-flavor-id">
+          <translate>Master Flavor</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="template-master-flavor-id" type="text" class="form-control" id="template-master-flavor-id"
+               ng-model="model.newTemplateSpec.master_flavor_id"
+               ng-required="true"
+               placeholder="{$ 'Flavor ID of Master Node.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="template-worker-nodes-num">
+          <translate>Worker Nodes</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="template-worker-nodes-num" type="number" min="1" class="form-control" id="template-worker-nodes-num"
+               ng-model="model.newTemplateSpec.worker_nodes_num"
+               ng-required="true"
+               placeholder="{$ 'Number of Worker Node.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="template-worker-flavor-id">
+          <translate>Worker Flavor</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="template-worker-flavor-id" type="text" class="form-control" id="template-worker-flavor-id"
+               ng-model="model.newTemplateSpec.worker_flavor_id"
+               ng-required="true"
+               placeholder="{$ 'Flavor ID of Worker Node.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="template-floating-ip-pool">
+          <translate>Floating IP Pool</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="template-floating-ip-pool" type="text" class="form-control" id="template-floating-ip-pool"
+               ng-model="model.newTemplateSpec.floating_ip_pool"
+               ng-required="true"
+               placeholder="{$ 'The UUID of Neutron External Network.'|translate $}">
+      </div>
+    </div>
+  </div>
+</div>

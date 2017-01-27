@@ -1,0 +1,32 @@
+<div ng-controller="createLearningInfoController as ctrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="learning-name" translate>Learning Name</label>
+        <input name="learning-name" type="text" class="form-control" id="learning-name"
+               ng-model="model.newLearningSpec.display_name"
+               placeholder="{$ 'Name of the learning to create.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="learning-description" translate>Learning Description</label>
+        <input name="learning-description" type="text" class="form-control" id="learning-description"
+               ng-model="model.newLearningSpec.display_description"
+               placeholder="{$ 'Description of the learning to create.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="learning-model-id">
+          <translate>Template</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="learning-model-id" type="text" class="form-control" id="learning-model-id"
+               ng-model="model.newLearningSpec.model_id"
+               ng-required="true"
+               placeholder="{$ 'Name or ID of the template.'|translate $}">
+      </div>
+    </div>
+  </div>
+</div>

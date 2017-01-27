@@ -1,0 +1,32 @@
+<div ng-controller="createDatasetInfoController as ctrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-name" translate>Dataset Name</label>
+        <input name="dataset-name" type="text" class="form-control" id="dataset-name"
+               ng-model="model.newDatasetSpec.display_name"
+               placeholder="{$ 'Name of the dataset to create.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-description" translate>Dataset Description</label>
+        <input name="dataset-description" type="text" class="form-control" id="dataset-description"
+               ng-model="model.newDatasetSpec.display_description"
+               placeholder="{$ 'Description of the dataset to create.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="dataset-experiment-id">
+          <translate>Experiment</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-experiment-id" type="text" class="form-control" id="dataset-experiment-id"
+               ng-model="model.newDatasetSpec.experiment_id"
+               ng-required="true"
+               placeholder="{$ 'ID of the experiment.'|translate $}">
+      </div>
+    </div>
+  </div>
+</div>
