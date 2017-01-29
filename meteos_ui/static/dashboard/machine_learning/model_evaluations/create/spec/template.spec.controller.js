@@ -32,5 +32,12 @@
   ];
 
   function createModelEvaluationSpecController($scope, gettext) {
+    var ctrl = this;
+
+    ctrl.model_evaluationFormatOptions = [
+      { label: gettext('CSV'), value: 'csv' },
+      { label: gettext('LibSVM'), value: 'libsvm' },
+      { label: gettext('Text'), value: 'text' }
+    ];
   }
 })();

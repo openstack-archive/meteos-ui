@@ -6,10 +6,11 @@
           <translate>Model Type</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="model-model-type" type="text" class="form-control" id="model-model-type"
-               ng-model="model.newModelSpec.model_type"
-               ng-required="true"
-               placeholder="{$ 'Prediction Model Type'|translate $}">
+        <select class="form-control"
+                ng-model="model.newModelSpec.model_type"
+                ng-options="item for item in ctrl.modelTypeOptions">
+        </select>
+        </div>
       </div>
     </div>
     <div class="col-xs-12">
@@ -41,10 +42,14 @@
           <translate>Dataset Format</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="model-dataset-format" type="text" class="form-control" id="model-dataset-format"
-               ng-model="model.newModelSpec.dataset_format"
-               ng-required="true"
-               placeholder="{$ 'Dataset Format (csv or libsvm or text).'|translate $}">
+        <div class="form-field">
+          <div class="btn-group">
+            <label class="btn btn-default"
+                   ng-repeat="option in ctrl.modelFormatOptions"
+                   ng-model="model.newModelSpec.dataset_format"
+                   uib-btn-radio="option.value">{$ ::option.label $}</label>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-xs-12">

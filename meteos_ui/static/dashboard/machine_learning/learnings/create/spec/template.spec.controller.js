@@ -32,5 +32,11 @@
   ];
 
   function createLearningSpecController($scope, gettext) {
+    var ctrl = this;
+
+    ctrl.learningMethodOptions = [
+      { label: gettext('Predict'), value: 'predict' }
+    ];
+
   }
 })();

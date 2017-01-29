@@ -32,5 +32,23 @@
   ];
 
   function createModelSpecController($scope, gettext) {
+    var ctrl = this;
+
+    ctrl.modelTypeOptions = [
+      'LogisticRegression',
+      'DecisionTreeRegression',
+      'LinearRegression',
+      'KMeans',
+      'Recommendation',
+      'Word2Vec',
+      'FPGrowth'
+    ];
+
+    ctrl.modelFormatOptions = [
+      { label: gettext('CSV'), value: 'csv' },
+      { label: gettext('LibSVM'), value: 'libsvm' },
+      { label: gettext('Text'), value: 'text' }
+    ];
+
   }
 })();
