@@ -37,10 +37,10 @@
           formName: 'model_evaluationInfoForm'
         },
         {
-          title: gettext('Spec'),
-          templateUrl: basePath + 'model_evaluations/create/spec/spec.html',
-          helpUrl: basePath + 'model_evaluations/create/spec/spec.help.html',
-          formName: 'model_evaluationSpecForm'
+          title: gettext('Dataset'),
+          templateUrl: basePath + 'common/dataset/dataset.html',
+          helpUrl: basePath + 'common/dataset/dataset.help.html',
+          formName: 'commonDatasetForm'
         },
       ],
 

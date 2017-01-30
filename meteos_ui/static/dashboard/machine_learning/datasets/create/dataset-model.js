@@ -26,6 +26,7 @@
   function datasetModel(meteos) {
     var model = {
       newDatasetSpec: {},
+      newCommonDataset: {},
 
       // API methods
       init: init,
@@ -44,6 +45,17 @@
         swift_username: null,
         swift_password: null
       };
+
+      model.newCommonDataset = {
+        location: null,
+        format: null,
+        dataset_uuid: null,
+        container_name: null,
+        object_name: null,
+        swift_tenant: null,
+        swift_username: null,
+        swift_password: null
+      };
     }
 
     function init() {
@@ -53,21 +65,23 @@
 
     function createDataset() {
       var finalSpec = angular.copy(model.newDatasetSpec);
+      var commonDataset = angular.copy(model.newCommonDataset);
+      var url = "";
 
-      cleanNullProperties(finalSpec);
+      if(commonDataset.location == 'swift'){
+        url = 'swift://' +
+              commonDataset.container_name + '/' +
+              commonDataset.object_name;
+      }else{
+        url = 'internal://' + commonDataset.dataset_uuid;
+      }
+
+      finalSpec.source_dataset_url = url;
+      finalSpec.swift_tenant = commonDataset.swift_tenant;
+      finalSpec.swift_username = commonDataset.swift_username;
+      finalSpec.swift_password = commonDataset.swift_password;
 
       return meteos.createDataset(finalSpec);
-    }
-
-    function cleanNullProperties(finalSpec) {
-      // Initially clean fields that don't have any value.
-      // Not only "null", blank too.
-      for (var key in finalSpec) {
-        if (finalSpec.hasOwnProperty(key) && finalSpec[key] === null
-            || finalSpec[key] === "") {
-          delete finalSpec[key];
-        }
-      }
     }
 
     return model;

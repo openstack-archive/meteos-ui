@@ -37,6 +37,12 @@
           formName: 'datasetInfoForm'
         },
         {
+          title: gettext('Dataset'),
+          templateUrl: basePath + 'common/dataset/dataset.html',
+          helpUrl: basePath + 'common/dataset/dataset.help.html',
+          formName: 'commonDatasetForm'
+        },
+        {
           title: gettext('Spec'),
           templateUrl: basePath + 'datasets/create/spec/spec.html',
           helpUrl: basePath + 'datasets/create/spec/spec.help.html',

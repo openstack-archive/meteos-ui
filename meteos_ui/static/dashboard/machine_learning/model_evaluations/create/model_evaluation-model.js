@@ -26,6 +26,7 @@
   function model_evaluationModel(meteos) {
     var model = {
       newModelEvaluationSpec: {},
+      newCommonDataset: {},
 
       // API methods
       init: init,
@@ -42,6 +43,18 @@
         swift_username: null,
         swift_password: null
       };
+
+      model.newCommonDataset = {
+        location: null,
+        format: null,
+        dataset_uuid: null,
+        dataset_format: null,
+        container_name: null,
+        object_name: null,
+        swift_tenant: null,
+        swift_username: null,
+        swift_password: null
+      };
     }
 
     function init() {
@@ -51,21 +64,24 @@
 
     function createModelEvaluation() {
       var finalSpec = angular.copy(model.newModelEvaluationSpec);
+      var commonDataset = angular.copy(model.newCommonDataset);
+      var url = "";
 
-      cleanNullProperties(finalSpec);
+      if(commonDataset.location == 'swift'){
+        url = 'swift://' +
+              commonDataset.container_name + '/' +
+              commonDataset.object_name;
+      }else{
+        url = 'internal://' + commonDataset.dataset_uuid;
+      }
+
+      finalSpec.source_dataset_url = url;
+      finalSpec.dataset_format = commonDataset.dataset_format;
+      finalSpec.swift_tenant = commonDataset.swift_tenant;
+      finalSpec.swift_username = commonDataset.swift_username;
+      finalSpec.swift_password = commonDataset.swift_password;
 
       return meteos.createModelEvaluation(finalSpec);
-    }
-
-    function cleanNullProperties(finalSpec) {
-      // Initially clean fields that don't have any value.
-      // Not only "null", blank too.
-      for (var key in finalSpec) {
-        if (finalSpec.hasOwnProperty(key) && finalSpec[key] === null
-            || finalSpec[key] === "") {
-          delete finalSpec[key];
-        }
-      }
     }
 
     return model;

@@ -1,0 +1,110 @@
+<div ng-controller="commonDatasetController as ctrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="location">
+          <translate>Dataset Location</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <div class="form-field">
+          <div class="btn-group">
+            <label class="btn btn-default"
+                    ng-repeat="option in ctrl.datasetLocationOptions"
+                    ng-model="model.newCommonDataset.location"
+                    uib-btn-radio="option.value">{$ ::option.label $}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="control-label" for="format">
+          <translate>Dataset Format</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <div class="form-field">
+          <div class="btn-group">
+            <label class="btn btn-default"
+                   ng-repeat="option in ctrl.datasetFormatOptions"
+                   ng-model="model.newCommonDataset.format"
+                   uib-btn-radio="option.value">{$ ::option.label $}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12"
+         ng-if="model.newCommonDataset.location == 'swift'">
+      <div class="form-group">
+        <label class="control-label" for="container-name">
+          <translate>Container Name</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="container-name" type="text" class="form-control" id="container-name"
+               ng-model="model.newCommonDataset.container_name"
+               placeholder="{$ 'Swift Container Name.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newCommonDataset.location == 'swift'">
+      <div class="form-group">
+        <label class="control-label" for="object-name">
+          <translate>Object Name</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="object-name" type="text" class="form-control" id="object-name"
+               ng-model="model.newCommonDataset.object_name"
+               placeholder="{$ 'Swift Object Name.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newCommonDataset.location == 'internal'">
+      <div class="form-group">
+        <label class="control-label" for="dataset-uuid">
+          <translate>Dataset UUID</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-uuid" type="text" class="form-control" id="dataset-uuid"
+               ng-model="model.newCommonDataset.dataset_uuid"
+               placeholder="{$ 'UUID of Meteos Dataset.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newCommonDataset.location == 'swift'">
+      <div class="form-group">
+        <label class="control-label" for="swift-tenant">
+          <translate>Swift Tenant</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="swift-tenant" type="text" class="form-control" id="swift-tenant"
+               ng-model="model.newCommonDataset.swift_tenant"
+               placeholder="{$ 'Tenant name of Swift.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newCommonDataset.location == 'swift'">
+      <div class="form-group">
+        <label class="control-label" for="swift-username">
+          <translate>Swift User Name</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="swift-username" type="text" class="form-control" id="swift-username"
+               ng-model="model.newCommonDataset.swift_username"
+               placeholder="{$ 'User name of Swift.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newCommonDataset.location == 'swift'">
+      <div class="form-group">
+        <label class="control-label" for="swift-password">
+          <translate>Swift User Password</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="swift-password" type="text" class="form-control" id="swift-password"
+               ng-model="model.newCommonDataset.swift_password"
+               placeholder="{$ 'Password of Swift User.'|translate $}">
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,27 +17,33 @@
 
   /**
    * @ngdoc controller
-   * @name createModelEvaluationSpecController
+   * @name commonDatasetController
    * @ngController
    * @description
-   * Controller for the model_evaluation spec step in create workflow
+   * Controller for the dataset step in create workflow
    */
   angular
-    .module('horizon.dashboard.machine_learning.model_evaluations')
-    .controller('createModelEvaluationSpecController', createModelEvaluationSpecController);
+    .module('horizon.dashboard.machine_learning.models')
+    .controller('commonDatasetController', commonDatasetController);
 
-  createModelEvaluationSpecController.$inject = [
+  commonDatasetController.$inject = [
     '$scope',
     'horizon.framework.util.i18n.gettext'
   ];
 
-  function createModelEvaluationSpecController($scope, gettext) {
+  function commonDatasetController($scope, gettext) {
     var ctrl = this;
 
-    ctrl.model_evaluationFormatOptions = [
+    ctrl.datasetLocationOptions = [
+      { label: gettext('Swift'), value: 'swift' },
+      { label: gettext('Internal HDFS'), value: 'internal' }
+    ];
+
+    ctrl.datasetFormatOptions = [
       { label: gettext('CSV'), value: 'csv' },
       { label: gettext('LibSVM'), value: 'libsvm' },
       { label: gettext('Text'), value: 'text' }
     ];
+
   }
 })();
