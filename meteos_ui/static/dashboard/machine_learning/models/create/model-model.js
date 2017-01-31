@@ -27,6 +27,7 @@
     var model = {
       newModelSpec: {},
       newCommonDataset: {},
+      newParamsSpec: {},
 
       // API methods
       init: init,
@@ -58,6 +59,23 @@
         swift_username: null,
         swift_password: null
       };
+
+      model.newParamsSpec = {
+        numIterations: null,
+        numClasses: null,
+        runs: null,
+        mode: null,
+        rank: null,
+        step: null,
+        impurity: null,
+        maxDepth: null,
+        maxBins:null,
+        learningRate: null,
+        minCount: null,
+        minSupport: null,
+        limits:null
+      };
+
     }
 
     function init() {
@@ -68,7 +86,12 @@
     function createModel() {
       var finalSpec = angular.copy(model.newModelSpec);
       var commonDataset = angular.copy(model.newCommonDataset);
+      var finalParams = angular.copy(model.newParamsSpec);
       var url = "";
+
+      cleanNullProperties(finalParams);
+
+      finalSpec.model_params = JSON.stringify(finalParams);
 
       if(commonDataset.location == 'swift'){
         url = 'swift://' +
@@ -85,6 +108,17 @@
       finalSpec.swift_password = commonDataset.swift_password;
 
       return meteos.createModel(finalSpec);
+    }
+
+
+    function cleanNullProperties(finalParams) {
+      // Initially clean fields that don't have any value.
+      // Not only "null", blank too.
+      for (var key in finalParams) {
+        if (finalParams[key] === null || finalParams[key] === "") {
+          delete finalParams[key];
+        }
+      }
     }
 
     return model;
