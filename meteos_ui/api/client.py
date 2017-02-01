@@ -14,8 +14,8 @@
 from horizon import exceptions
 from horizon.utils.memoized import memoized
 import logging
-from openstack_dashboard.api import base
 from meteosclient.api import client as meteos_client
+from openstack_dashboard.api import base
 
 
 LOG = logging.getLogger(__name__)
@@ -52,9 +52,9 @@ def meteosclient(request):
     LOG.debug('meteosclient connection created using the token "%s" and url'
               '"%s"' % (request.user.token.id, meteos_url))
     c = meteos_client.Client(username=request.user.username,
-                          project_id=request.user.tenant_id,
-                          input_auth_token=request.user.token.id,
-                          meteos_url=meteos_url)
+                             project_id=request.user.tenant_id,
+                             input_auth_token=request.user.token.id,
+                             meteos_url=meteos_url)
     return c
 
 
@@ -130,12 +130,12 @@ def dataset_delete(request, id):
 
 
 def dataset_list(request, search_opts=None, limit=None, marker=None,
-                    sort_key=None, sort_dir=None):
+                 sort_key=None, sort_dir=None):
     return meteosclient(request).datasets.list(search_opts,
-                                                  limit,
-                                                  marker,
-                                                  sort_key,
-                                                  sort_dir)
+                                               limit,
+                                               marker,
+                                               sort_key,
+                                               sort_dir)
 
 
 def dataset_show(request, id):
@@ -158,7 +158,7 @@ def model_delete(request, id):
 
 
 def model_list(request, search_opts=None, limit=None, marker=None,
-                    sort_key=None, sort_dir=None):
+               sort_key=None, sort_dir=None):
     return meteosclient(request).models.list(search_opts,
                                              limit,
                                              marker,
@@ -186,7 +186,7 @@ def model_evaluation_delete(request, id):
 
 
 def model_evaluation_list(request, search_opts=None, limit=None, marker=None,
-                    sort_key=None, sort_dir=None):
+                          sort_key=None, sort_dir=None):
     return meteosclient(request).model_evaluations.list(search_opts,
                                                         limit,
                                                         marker,
@@ -214,12 +214,12 @@ def learning_delete(request, id):
 
 
 def learning_list(request, search_opts=None, limit=None, marker=None,
-                    sort_key=None, sort_dir=None):
+                  sort_key=None, sort_dir=None):
     return meteosclient(request).learnings.list(search_opts,
-                                                  limit,
-                                                  marker,
-                                                  sort_key,
-                                                  sort_dir)
+                                                limit,
+                                                marker,
+                                                sort_key,
+                                                sort_dir)
 
 
 def learning_show(request, id):

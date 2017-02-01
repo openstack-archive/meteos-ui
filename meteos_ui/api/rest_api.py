@@ -26,7 +26,7 @@ class Template(generic.View):
     @rest_utils.ajax()
     def get(self, request, id):
         """Get a specific template"""
-        return change_to_id(client.template_show(request, id).to_dict())
+        return client.template_show(request, id).to_dict()
 
 
 @urls.register
@@ -79,7 +79,7 @@ class Experiment(generic.View):
     @rest_utils.ajax()
     def get(self, request, id):
         """Get a specific experiment"""
-        return change_to_id(client.experiment_show(request, id).to_dict())
+        return client.experiment_show(request, id).to_dict()
 
 
 @urls.register
@@ -132,7 +132,7 @@ class Dataset(generic.View):
     @rest_utils.ajax()
     def get(self, request, id):
         """Get a specific dataset"""
-        return change_to_id(client.dataset_show(request, id).to_dict())
+        return client.dataset_show(request, id).to_dict()
 
 
 @urls.register
@@ -185,7 +185,7 @@ class Model(generic.View):
     @rest_utils.ajax()
     def get(self, request, id):
         """Get a specific model"""
-        return change_to_id(client.model_show(request, id).to_dict())
+        return client.model_show(request, id).to_dict()
 
 
 @urls.register
@@ -238,7 +238,7 @@ class ModelEvaluation(generic.View):
     @rest_utils.ajax()
     def get(self, request, id):
         """Get a specific model_evaluation"""
-        return change_to_id(client.model_evaluation_show(request, id).to_dict())
+        return client.model_evaluation_show(request, id).to_dict()
 
 
 @urls.register
@@ -292,7 +292,7 @@ class Learning(generic.View):
     @rest_utils.ajax()
     def get(self, request, id):
         """Get a specific learning"""
-        return change_to_id(client.learning_show(request, id).to_dict())
+        return client.learning_show(request, id).to_dict()
 
 
 @urls.register

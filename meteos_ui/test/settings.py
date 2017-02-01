@@ -22,6 +22,7 @@ HORIZON_CONFIG.pop('default_dashboard', None)
 # Update the dashboards with meteos_ui
 import openstack_dashboard.enabled
 from openstack_dashboard.utils import settings
+
 import meteos_ui.enabled
 
 settings.update_dashboards(
