@@ -18,5 +18,5 @@ PANEL_GROUP = 'machine_learning'
 PANEL_DASHBOARD = 'project'
 
 # Python panel class of the PANEL to be added.
-ADD_PANEL = 'meteos_ui.content.machine_learning.model_evaluations.panel.\
-            ModelEvaluations'
+ADD_PANEL = 'meteos_ui.content.machine_learning.model_evaluations.panel.'\
+            'ModelEvaluations'
