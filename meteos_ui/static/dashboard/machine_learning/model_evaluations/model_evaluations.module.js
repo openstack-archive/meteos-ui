@@ -67,6 +67,9 @@
     .setProperty('status', {
       label: gettext('Status')
     })
+    .setProperty('model_id', {
+      label: gettext('Model ID')
+    })
     .setProperty('model_type', {
       label: gettext('Model Type')
     })
@@ -91,6 +94,10 @@
     })
     .append({
       id: 'status',
+      priority: 2
+    })
+    .append({
+      id: 'model_id',
       priority: 2
     })
     .append({
