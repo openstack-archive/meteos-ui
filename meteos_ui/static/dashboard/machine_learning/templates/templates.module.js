@@ -61,6 +61,9 @@
     .setProperty('name', {
       label: gettext('Name')
     })
+    .setProperty('description', {
+      label: gettext('Description')
+    })
     .setProperty('id', {
       label: gettext('ID')
     })
@@ -70,8 +73,14 @@
     .setProperty('master_nodes', {
       label: gettext('Master Nodes')
     })
+    .setProperty('master_flavor', {
+      label: gettext('Master Flavor')
+    })
     .setProperty('worker_nodes', {
       label: gettext('Worker Nodes')
+    })
+    .setProperty('worker_flavor', {
+      label: gettext('Worker Flavor')
     })
     .setProperty('spark_version', {
       label: gettext('Spark Version')
@@ -86,6 +95,10 @@
       urlFunction: urlFunction
     })
     .append({
+      id: 'description',
+      priority: 2
+    })
+    .append({
       id: 'id',
       priority: 3
     })
@@ -98,8 +111,16 @@
       priority: 2
     })
     .append({
+      id: 'master_flavor',
+      priority: 3
+    })
+    .append({
       id: 'worker_nodes',
       priority: 2
+    })
+    .append({
+      id: 'worker_flavor',
+      priority: 3
     })
     .append({
       id: 'spark_version',
@@ -110,6 +131,11 @@
     .append({
       'label': gettext('Name'),
       'name': 'name',
+      'singleton': true
+    })
+    .append({
+      'label': gettext('Description'),
+      'name': 'description',
       'singleton': true
     })
     .append({

@@ -61,17 +61,23 @@
     .setProperty('name', {
       label: gettext('Name')
     })
+    .setProperty('description', {
+      label: gettext('Description')
+    })
     .setProperty('id', {
       label: gettext('ID')
     })
     .setProperty('status', {
       label: gettext('Status')
     })
-    .setProperty('key_name', {
-      label: gettext('Key Name')
+    .setProperty('type', {
+      label: gettext('Model Type')
     })
-    .setProperty('management_network', {
-      label: gettext('Management Network')
+    .setProperty('params', {
+      label: gettext('Model Param')
+    })
+    .setProperty('source_dataset_url', {
+      label: gettext('Source Dataset URL')
     })
     .setListFunction(listFunction)
     .tableColumns
@@ -83,6 +89,10 @@
       urlFunction: urlFunction
     })
     .append({
+      id: 'description',
+      priority: 2
+    })
+    .append({
       id: 'id',
       priority: 3
     })
@@ -91,11 +101,15 @@
       priority: 2
     })
     .append({
-      id: 'key_name',
+      id: 'type',
       priority: 2
     })
     .append({
-      id: 'management_network',
+      id: 'params',
+      priority: 3
+    })
+    .append({
+      id: 'source_dataset_url',
       priority: 2
     })
     // for magic-search
@@ -103,6 +117,11 @@
     .append({
       'label': gettext('Name'),
       'name': 'name',
+      'singleton': true
+    })
+    .append({
+      'label': gettext('Description'),
+      'name': 'description',
       'singleton': true
     })
     .append({
@@ -116,13 +135,13 @@
       'singleton': true
     })
     .append({
-      'label': gettext('Key Name'),
-      'name': 'key_name',
+      'label': gettext('Model Type'),
+      'name': 'type',
       'singleton': true
     })
     .append({
-      'label': gettext('Management Network'),
-      'name': 'management_network',
+      'label': gettext('Source Dataset URL'),
+      'name': 'source_dataset_url',
       'singleton': true
     });
 
