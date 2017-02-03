@@ -61,6 +61,9 @@
     .setProperty('name', {
       label: gettext('Name')
     })
+    .setProperty('description', {
+      label: gettext('Description')
+    })
     .setProperty('id', {
       label: gettext('ID')
     })
@@ -80,6 +83,10 @@
       urlFunction: urlFunction
     })
     .append({
+      id: 'description',
+      priority: 2
+    })
+    .append({
       id: 'id',
       priority: 3
     })
@@ -96,6 +103,11 @@
     .append({
       'label': gettext('Name'),
       'name': 'name',
+      'singleton': true
+    })
+    .append({
+      'label': gettext('Description'),
+      'name': 'description',
       'singleton': true
     })
     .append({
