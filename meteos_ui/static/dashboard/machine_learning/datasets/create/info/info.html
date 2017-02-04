@@ -22,10 +22,11 @@
           <translate>Experiment</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="dataset-experiment-id" type="text" class="form-control" id="dataset-experiment-id"
-               ng-model="model.newDatasetSpec.experiment_id"
-               ng-required="true"
-               placeholder="{$ 'UUID of the experiment.'|translate $}">
+        <select class="form-control"
+                ng-model="model.newDatasetSpec.experiment_id"
+                ng-required="true"
+                ng-options="experiment.id as experiment.name + ':' + experiment.id for experiment in ctrl.experiments">
+        </select>
       </div>
     </div>
   </div>

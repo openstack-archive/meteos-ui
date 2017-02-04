@@ -27,8 +27,23 @@
     .controller('createDatasetInfoController', createDatasetInfoController);
 
   createDatasetInfoController.$inject = [
+    'horizon.app.core.openstack-service-api.meteos'
   ];
 
-  function createDatasetInfoController() {
+  function createDatasetInfoController(meteos) {
+
+    var ctrl = this;
+    ctrl.experiments = [];
+
+    init();
+
+    function init() {
+      meteos.getExperiments().success(onGetExperiments);
+    }
+
+    function onGetExperiments(response) {
+      ctrl.experiments = response.items;
+    }
+
   }
 })();

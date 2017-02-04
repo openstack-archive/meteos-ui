@@ -22,10 +22,11 @@
           <translate>Model</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="learning-model-id" type="text" class="form-control" id="learning-model-id"
-               ng-model="model.newLearningSpec.model_id"
-               ng-required="true"
-               placeholder="{$ 'UUID of prediction model which you want to predict.'|translate $}">
+        <select class="form-control"
+                ng-model="model.newLearningSpec.model_id"
+                ng-required="true"
+                ng-options="model.id as model.name + ':' + model.id for model in ctrl.models">
+        </select>
       </div>
     </div>
   </div>

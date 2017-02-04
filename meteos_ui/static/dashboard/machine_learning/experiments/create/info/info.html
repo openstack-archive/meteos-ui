@@ -22,10 +22,11 @@
           <translate>Template</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="experiment-template-id" type="text" class="form-control" id="experiment-template-id"
-               ng-model="model.newExperimentSpec.template_id"
-               ng-required="true"
-               placeholder="{$ 'Name or ID of the template.'|translate $}">
+        <select class="form-control"
+                ng-model="model.newExperimentSpec.template_id"
+                ng-required="true"
+                ng-options="template.id as template.name + ':' + template.id for template in ctrl.templates">
+        </select>
       </div>
     </div>
   </div>

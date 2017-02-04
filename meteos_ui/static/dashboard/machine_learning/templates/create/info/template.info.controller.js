@@ -27,8 +27,22 @@
     .controller('createTemplateInfoController', createTemplateInfoController);
 
   createTemplateInfoController.$inject = [
+    'horizon.app.core.openstack-service-api.glance'
   ];
 
-  function createTemplateInfoController() {
+  function createTemplateInfoController(glance) {
+
+    var ctrl = this;
+    ctrl.images = [];
+    init();
+
+    function init() {
+      glance.getImages().success(onGetImages);
+    }
+
+    function onGetImages(response) {
+      ctrl.images = response.items;
+    }
+
   }
 })();

@@ -18,10 +18,11 @@
           <translate>Neutron Management Network</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="experiment-neutron-management-network" type="text" class="form-control" id="experiment-neutron-management-network"
-               ng-model="model.newExperimentSpec.neutron_management_network"
-               ng-required="true"
-               placeholder="{$ 'The UUID of Neutron Management Network.'|translate $}">
+        <select class="form-control"
+                ng-model="model.newExperimentSpec.neutron_management_network"
+                ng-required="true"
+                ng-options="network.id as network.name + ':' + network.id for network in ctrl.networks">
+        </select>
       </div>
     </div>
   </div>

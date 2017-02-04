@@ -27,10 +27,23 @@
     .controller('createExperimentSpecController', createExperimentSpecController);
 
   createExperimentSpecController.$inject = [
-    '$scope',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.app.core.openstack-service-api.neutron'
   ];
 
-  function createExperimentSpecController($scope, gettext) {
+  function createExperimentSpecController(neutron) {
+
+    var ctrl = this;
+    ctrl.networks = [];
+
+    init();
+
+    function init() {
+      neutron.getNetworks().success(onGetNetworks);
+    }
+
+    function onGetNetworks(response) {
+      ctrl.networks = response.items;
+    }
+
   }
 })();
