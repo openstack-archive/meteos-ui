@@ -28,11 +28,13 @@
 
   commonDatasetController.$inject = [
     '$scope',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    'horizon.app.core.openstack-service-api.meteos'
   ];
 
-  function commonDatasetController($scope, gettext) {
+  function commonDatasetController($scope, gettext, meteos) {
     var ctrl = this;
+    ctrl.datasets = [];
 
     ctrl.datasetLocationOptions = [
       { label: gettext('Swift'), value: 'swift' },
@@ -44,6 +46,16 @@
       { label: gettext('LibSVM'), value: 'libsvm' },
       { label: gettext('Text'), value: 'text' }
     ];
+
+    init();
+
+    function init() {
+      meteos.getDatasets().success(onGetDatasets);
+    }
+
+    function onGetDatasets(response) {
+      ctrl.datasets = response.items;
+    }
 
   }
 })();
