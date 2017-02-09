@@ -76,7 +76,7 @@
       }
 
       finalSpec.source_dataset_url = url;
-      finalSpec.dataset_format = commonDataset.dataset_format;
+      finalSpec.dataset_format = commonDataset.format;
       finalSpec.swift_tenant = commonDataset.swift_tenant;
       finalSpec.swift_username = commonDataset.swift_username;
       finalSpec.swift_password = commonDataset.swift_password;
