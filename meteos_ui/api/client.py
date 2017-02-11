@@ -28,7 +28,8 @@ EXPERIMENT_CREATE_ATTRS = ['display_name', 'display_description', 'key_name',
                            'neutron_management_network', 'template_id']
 DATASET_CREATE_ATTRS = ['method', 'source_dataset_url', 'display_name',
                         'display_description', 'experiment_id', 'params',
-                        'swift_tenant', 'swift_username', 'swift_password']
+                        'percent_train', 'percent_test', 'swift_tenant',
+                        'swift_username', 'swift_password']
 MODEL_CREATE_ATTRS = ['source_dataset_url', 'display_name',
                       'display_description', 'experiment_id',
                       'model_type', 'model_params', 'dataset_format',

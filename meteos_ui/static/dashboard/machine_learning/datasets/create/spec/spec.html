@@ -16,7 +16,29 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12"
+         ng-if="model.newDatasetSpec.method == 'split'">
+      <div class="form-group">
+        <label class="control-label" for="dataset-percent-train">
+          <translate>Percentage for Training</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-percent-train" type="text" class="form-control" id="dataset-percent-train"
+               ng-model="model.newDatasetSpec.percent_train"
+               placeholder="{$ 'Percentage for Training.'|translate $}">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="dataset-percent-test">
+          <translate>Percentage for Evaluation</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="dataset-percent-test" type="text" class="form-control" id="dataset-percent-test"
+               ng-model="model.newDatasetSpec.percent_test"
+               placeholder="{$ 'Percentage for Evaluation.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newDatasetSpec.method == 'parse'">
       <div class="form-group">
         <label class="control-label" for="dataset-params">
           <translate>Params</translate>

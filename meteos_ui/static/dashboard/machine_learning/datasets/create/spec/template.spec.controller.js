@@ -36,7 +36,8 @@
 
     ctrl.datasetMethodOptions = [
       { label: gettext('Download'), value: 'download' },
-      { label: gettext('Parse'), value: 'parse' }
+      { label: gettext('Parse'), value: 'parse' },
+      { label: gettext('Split'), value: 'split' }
     ];
 
   }

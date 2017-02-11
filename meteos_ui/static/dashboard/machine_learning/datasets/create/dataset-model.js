@@ -41,6 +41,8 @@
         source_dataset_url: null,
         experiment_id: null,
         params: null,
+        percent_train: null,
+        percent_test: null,
         swift_tenant: null,
         swift_username: null,
         swift_password: null
