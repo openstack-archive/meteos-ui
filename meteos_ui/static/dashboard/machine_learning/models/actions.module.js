@@ -30,6 +30,8 @@
     'horizon.framework.util.i18n.gettext',
     'horizon.dashboard.machine_learning.models.create.service',
     'horizon.dashboard.machine_learning.models.delete.service',
+    'horizon.dashboard.machine_learning.models.load.service',
+    'horizon.dashboard.machine_learning.models.unload.service',
     'horizon.dashboard.machine_learning.models.resourceType',
   ];
 
@@ -38,6 +40,8 @@
     gettext,
     createModelService,
     deleteModelService,
+    loadModelService,
+    unloadModelService,
     resourceType)
   {
     var modelsResourceType = registry.getResourceType(resourceType);
@@ -61,6 +65,23 @@
           text: gettext('Delete Models')
         }
       });
+
+    modelsResourceType.itemActions
+      .append({
+        id: 'loadModelAction',
+        service: loadModelService,
+        template: {
+          text: gettext('Load Model')
+        }
+      })
+      .append({
+        id: 'unloadModelAction',
+        service: unloadModelService,
+        template: {
+          text: gettext('Unload Model')
+        }
+      });
+
   }
 
 })();

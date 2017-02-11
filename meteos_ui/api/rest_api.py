@@ -193,6 +193,14 @@ class ModelActions(generic.View):
     """API for retrieving a single model"""
     url_regex = r'meteos/models/(?P<id>[^/]+)/(?P<action>[^/]+)$'
 
+    @rest_utils.ajax()
+    def post(self, request, id, action):
+        """Execute a action of the Models."""
+        if action == 'load':
+            return client.model_load(request, id)
+        elif action == 'unload':
+            return client.model_unload(request, id)
+
 
 @urls.register
 class Models(generic.View):

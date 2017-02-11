@@ -170,6 +170,14 @@ def model_show(request, id):
     return meteosclient(request).models.get(id)
 
 
+def model_load(request, id):
+    return meteosclient(request).models.load(id)
+
+
+def model_unload(request, id):
+    return meteosclient(request).models.unload(id)
+
+
 def model_evaluation_create(request, **kwargs):
     args = {}
     for (key, value) in kwargs.items():

@@ -46,6 +46,8 @@
       getModels: getModels,
       deleteModel: deleteModel,
       deleteModels: deleteModels,
+      loadModel: loadModel,
+      unloadModel: unloadModel,
       createModelEvaluation: createModelEvaluation,
       getModelEvaluation: getModelEvaluation,
       getModelEvaluations: getModelEvaluations,
@@ -241,6 +243,20 @@
       return apiService.delete('/api/meteos/models/', ids)
         .error(function() {
           toastService.add('error', gettext('Unable to delete the Models.'));
+        });
+    }
+
+    function loadModel(id) {
+      return apiService.post('/api/meteos/models/' + id + '/load')
+        .error(function() {
+          toastService.add('error', gettext('Unable to load Model'));
+        });
+    }
+
+    function unloadModel(id) {
+      return apiService.post('/api/meteos/models/' + id + '/unload')
+        .error(function() {
+          toastService.add('error', gettext('Unable to load Model'));
         });
     }
 
