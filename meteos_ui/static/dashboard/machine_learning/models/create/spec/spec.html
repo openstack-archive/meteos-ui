@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col-xs-12"
-         ng-if="model.newModelSpec.model_type != 'DecisionTreeRegression'">
+         ng-if="model.newModelSpec.model_type != 'DecisionTreeRegression' && model.newModelSpec.model_type != 'NaiveBayes'">
       <div class="form-group">
         <label class="control-label" for="model-model-numIterations">
           <translate>NumIterations</translate>
@@ -21,6 +21,18 @@
         </label>
         <input name="model-model-numIterations" type="text" class="form-control" id="model-model-numIterations"
                ng-model="model.newParamsSpec.numIterations"
+                placeholder="{$ 'Parameters when creating model.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newModelSpec.model_type == 'NaiveBayes'">
+      <div class="form-group">
+        <label class="control-label" for="model-model-lambda">
+          <translate>Lambda</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="model-model-lambda" type="text" class="form-control" id="model-model-lambda"
+               ng-model="model.newParamsSpec.lambda"
                 placeholder="{$ 'Parameters when creating model.'|translate $}">
       </div>
     </div>

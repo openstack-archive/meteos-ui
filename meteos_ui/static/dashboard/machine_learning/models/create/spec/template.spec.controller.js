@@ -36,6 +36,7 @@
 
     ctrl.modelTypeOptions = [
       'LogisticRegression',
+      'NaiveBayes',
       'DecisionTreeRegression',
       'LinearRegression',
       'KMeans',

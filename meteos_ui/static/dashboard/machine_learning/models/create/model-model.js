@@ -62,6 +62,7 @@
 
       model.newParamsSpec = {
         numIterations: null,
+        lambda: null,
         numClasses: null,
         runs: null,
         mode: null,
