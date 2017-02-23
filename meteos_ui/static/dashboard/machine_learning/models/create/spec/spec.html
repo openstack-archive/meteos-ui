@@ -21,7 +21,7 @@
         </label>
         <input name="model-model-numIterations" type="text" class="form-control" id="model-model-numIterations"
                ng-model="model.newParamsSpec.numIterations"
-                placeholder="{$ 'Parameters when creating model.'|translate $}">
+               placeholder="{$ 'Parameters when creating model.'|translate $}">
       </div>
     </div>
     <div class="col-xs-12"
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="col-xs-12"
-         ng-if="model.newModelSpec.model_type == 'KMeans'">
+         ng-if="model.newModelSpec.model_type == 'KMeans' || model.newModelSpec.model_type.indexOf('Classification') != -1">
       <div class="form-group">
         <label class="control-label" for="model-model-numClasses">
           <translate>NumClasses</translate>
@@ -85,7 +85,7 @@
       </div>
     </div>
     <div class="col-xs-12"
-         ng-if="model.newModelSpec.model_type == 'LinearRegression'">
+         ng-if="model.newModelSpec.model_type == 'LinearRegression' || model.newModelSpec.model_type == 'RidgeRegression'">
       <div class="form-group">
         <label class="control-label" for="model-model-step">
           <translate>Step</translate>
@@ -109,7 +109,19 @@
       </div>
     </div>
     <div class="col-xs-12"
-         ng-if="model.newModelSpec.model_type == 'DecisionTreeRegression'">
+         ng-if="model.newModelSpec.model_type.indexOf('RandomForest') != -1">
+      <div class="form-group">
+        <label class="control-label" for="model-model-numTrees">
+          <translate>NumTrees</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="model-model-numTrees" type="text" class="form-control" id="model-model-numTrees"
+               ng-model="model.newParamsSpec.numTrees"
+               placeholder="{$ 'Parameters when creating model.'|translate $}">
+      </div>
+    </div>
+    <div class="col-xs-12"
+         ng-if="model.newModelSpec.model_type.indexOf('Tree') != -1">
       <div class="form-group">
         <label class="control-label" for="model-model-maxDepth">
           <translate>MaxDepth</translate>
@@ -121,7 +133,7 @@
       </div>
     </div>
     <div class="col-xs-12"
-         ng-if="model.newModelSpec.model_type == 'DecisionTreeRegression'">
+         ng-if="model.newModelSpec.model_type.indexOf('Tree') != -1">
       <div class="form-group">
         <label class="control-label" for="model-model-maxBins">
           <translate>MaxBins</translate>

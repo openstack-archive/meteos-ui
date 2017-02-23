@@ -46,7 +46,7 @@
 
       model.newCommonDataset = {
         location: null,
-        format: null,
+        format: 'csv',
         dataset_uuid: null,
         dataset_format: null,
         container_name: null,
