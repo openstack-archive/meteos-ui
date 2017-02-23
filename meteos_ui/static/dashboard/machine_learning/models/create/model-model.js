@@ -50,7 +50,7 @@
 
       model.newCommonDataset = {
         location: null,
-        format: null,
+        format: 'csv',
         dataset_uuid: null,
         dataset_format: null,
         container_name: null,
@@ -61,20 +61,21 @@
       };
 
       model.newParamsSpec = {
-        numIterations: null,
-        lambda: null,
-        numClasses: null,
-        runs: null,
-        mode: null,
-        rank: null,
-        step: null,
+        numIterations: '10',
+        lambda: '1.0',
+        numClasses: '2',
+        runs: '10',
+        mode: 'random',
+        rank: '10',
+        step: '0.00000001',
         impurity: null,
-        maxDepth: null,
-        maxBins:null,
-        learningRate: null,
-        minCount: null,
-        minSupport: null,
-        limits:null
+        numTrees: '3',
+        maxDepth: '5',
+        maxBins: '32',
+        learningRate: '0.025',
+        minCount: '5',
+        minSupport: '0.2',
+        limits: '10'
       };
 
     }

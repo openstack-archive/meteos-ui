@@ -41,8 +41,8 @@
         source_dataset_url: null,
         experiment_id: null,
         params: null,
-        percent_train: null,
-        percent_test: null,
+        percent_train: 0.8,
+        percent_test: 0.2,
         swift_tenant: null,
         swift_username: null,
         swift_password: null
@@ -50,7 +50,7 @@
 
       model.newCommonDataset = {
         location: null,
-        format: null,
+        format: 'csv',
         dataset_uuid: null,
         container_name: null,
         object_name: null,

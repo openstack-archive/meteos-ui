@@ -41,7 +41,7 @@
         master_flavor_id: null,
         worker_nodes_num: null,
         worker_flavor_id: null,
-        spark_version: null,
+        spark_version: '1.6.0',
         floating_ip_pool: null
       };
     }

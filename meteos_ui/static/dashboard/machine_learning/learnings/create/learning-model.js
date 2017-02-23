@@ -37,7 +37,7 @@
         display_name: null,
         display_description: null,
         model_id: null,
-        method: null,
+        method: 'predict',
         args: null
       };
     }
