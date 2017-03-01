@@ -28,7 +28,8 @@
       'horizon.dashboard.machine_learning.datasets',
       'horizon.dashboard.machine_learning.models',
       'horizon.dashboard.machine_learning.model_evaluations',
-      'horizon.dashboard.machine_learning.learnings'
+      'horizon.dashboard.machine_learning.learnings',
+      'horizon.dashboard.machine_learning.overview'
     ])
     .config(config)
 
