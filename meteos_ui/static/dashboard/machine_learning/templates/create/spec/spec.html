@@ -34,10 +34,11 @@
           <translate>Master Flavor</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="template-master-flavor-id" type="text" class="form-control" id="template-master-flavor-id"
-               ng-model="model.newTemplateSpec.master_flavor_id"
-               ng-required="true"
-               placeholder="{$ 'Flavor ID of Master Node.'|translate $}">
+        <select class="form-control"
+                ng-model="model.newTemplateSpec.master_flavor_id"
+                ng-required="true"
+                ng-options="flavor.id as flavor.id + ':' + flavor.name for flavor in ctrl.flavors">
+        </select>
       </div>
     </div>
     <div class="col-xs-12">
@@ -58,10 +59,11 @@
           <translate>Worker Flavor</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input name="template-worker-flavor-id" type="text" class="form-control" id="template-worker-flavor-id"
-               ng-model="model.newTemplateSpec.worker_flavor_id"
-               ng-required="true"
-               placeholder="{$ 'Flavor ID of Worker Node.'|translate $}">
+        <select class="form-control"
+                ng-model="model.newTemplateSpec.worker_flavor_id"
+                ng-required="true"
+                ng-options="flavor.id as flavor.id + ':' + flavor.name for flavor in ctrl.flavors">
+        </select>
       </div>
     </div>
     <div class="col-xs-12">

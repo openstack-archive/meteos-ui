@@ -29,12 +29,14 @@
   createTemplateSpecController.$inject = [
     '$scope',
     'horizon.framework.util.i18n.gettext',
-    'horizon.app.core.openstack-service-api.neutron'
+    'horizon.app.core.openstack-service-api.neutron',
+    'horizon.app.core.openstack-service-api.nova'
   ];
 
-  function createTemplateSpecController($scope, gettext, neutron) {
+  function createTemplateSpecController($scope, gettext, neutron, nova) {
     var ctrl = this;
     ctrl.networks = [];
+    ctrl.flavors = [];
 
     ctrl.templateVersionOptions = [
       { label: gettext('1.6.0'), value: '1.6.0' }
@@ -44,10 +46,15 @@
 
     function init() {
       neutron.getNetworks().success(onGetNetworks);
+      nova.getFlavors().success(onGetFlavors);
     }
 
     function onGetNetworks(response) {
       ctrl.networks = response.items;
+    }
+
+    function onGetFlavors(response) {
+      ctrl.flavors = response.items;
     }
 
   }
