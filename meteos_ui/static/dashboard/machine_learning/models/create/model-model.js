@@ -25,6 +25,7 @@
 
   function modelModel(meteos) {
     var model = {
+      id: null,
       newModelSpec: {},
       newCommonDataset: {},
       newParamsSpec: {},
@@ -86,6 +87,7 @@
     }
 
     function createModel() {
+      var modelId = model.id;
       var finalSpec = angular.copy(model.newModelSpec);
       var commonDataset = angular.copy(model.newCommonDataset);
       var finalParams = angular.copy(model.newParamsSpec);
@@ -109,7 +111,12 @@
       finalSpec.swift_username = commonDataset.swift_username;
       finalSpec.swift_password = commonDataset.swift_password;
 
-      return meteos.createModel(finalSpec);
+      if(modelId){
+        delete finalSpec['experiment_id'];
+        return meteos.recreateModel(modelId, finalSpec);
+      }else{
+        return meteos.createModel(finalSpec);
+      }
     }
 
 

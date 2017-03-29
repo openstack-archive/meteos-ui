@@ -154,6 +154,17 @@ def model_create(request, **kwargs):
     return meteosclient(request).models.create(**args)
 
 
+def model_recreate(request, id, **kwargs):
+    args = {}
+    for (key, value) in kwargs.items():
+        if key in MODEL_CREATE_ATTRS:
+            args[str(key)] = str(value)
+        else:
+            raise exceptions.BadRequest(
+                "Key must be in %s" % ",".join(MODEL_CREATE_ATTRS))
+    return meteosclient(request).models.recreate(id, **args)
+
+
 def model_delete(request, id):
     return meteosclient(request).models.delete(id)
 

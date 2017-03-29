@@ -25,6 +25,7 @@
         <select class="form-control"
                 ng-model="model.newModelSpec.experiment_id"
                 ng-required="true"
+                ng-disabled="model.id"
                 ng-options="experiment.id as experiment.name + ':' + experiment.id for experiment in ctrl.experiments">
         </select>
       </div>

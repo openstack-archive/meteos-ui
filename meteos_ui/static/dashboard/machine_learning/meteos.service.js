@@ -42,6 +42,7 @@
       deleteDataset: deleteDataset,
       deleteDatasets: deleteDatasets,
       createModel: createModel,
+      recreateModel: recreateModel,
       getModel: getModel,
       getModels: getModels,
       deleteModel: deleteModel,
@@ -208,6 +209,13 @@
       return apiService.post('/api/meteos/models/', params)
         .error(function() {
           toastService.add('error', gettext('Unable to create Model'));
+        });
+    }
+
+    function recreateModel(id, params) {
+      return apiService.post('/api/meteos/models/' + id + '/recreate', params)
+        .error(function() {
+          toastService.add('error', gettext('Unable to recreate Model'));
         });
     }
 

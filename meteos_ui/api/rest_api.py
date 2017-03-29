@@ -200,6 +200,11 @@ class ModelActions(generic.View):
             return client.model_load(request, id)
         elif action == 'unload':
             return client.model_unload(request, id)
+        elif action == 'recreate':
+            new_model = client.model_recreate(request, id, **request.DATA)
+            return rest_utils.CreatedResponse(
+                '/api/meteos/model/%s' % new_model.id,
+                new_model.to_dict())
 
 
 @urls.register

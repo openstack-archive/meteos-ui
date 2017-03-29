@@ -30,6 +30,7 @@
     'horizon.framework.util.i18n.gettext',
     'horizon.dashboard.machine_learning.models.create.service',
     'horizon.dashboard.machine_learning.models.delete.service',
+    'horizon.dashboard.machine_learning.models.recreate.service',
     'horizon.dashboard.machine_learning.models.load.service',
     'horizon.dashboard.machine_learning.models.unload.service',
     'horizon.dashboard.machine_learning.models.resourceType',
@@ -40,6 +41,7 @@
     gettext,
     createModelService,
     deleteModelService,
+    recreateModelService,
     loadModelService,
     unloadModelService,
     resourceType)
@@ -67,6 +69,13 @@
       });
 
     modelsResourceType.itemActions
+      .append({
+        id: 'recreateModelAction',
+        service: recreateModelService,
+        template: {
+          text: gettext('Recreate Model')
+        }
+      })
       .append({
         id: 'loadModelAction',
         service: loadModelService,
