@@ -76,9 +76,6 @@
     .setProperty('source_dataset_url', {
       label: gettext('Source Dataset URL')
     })
-    .setProperty('stdout', {
-      label: gettext('Result')
-    })
     .setListFunction(listFunction)
     .tableColumns
     .append({
@@ -108,10 +105,6 @@
       id: 'source_dataset_url',
       priority: 2
     })
-    .append({
-      id: 'stdout',
-      priority: 2
-    })
     // for magic-search
     registry.getResourceType(resourceType).filterFacets
     .append({
@@ -138,22 +131,49 @@
       'label': gettext('Source Dataset URL'),
       'name': 'source_dataset_url',
       'singleton': true
-    })
-    .append({
-      'label': gettext('Result'),
-      'name': 'stdout',
-      'singleton': true
     });
 
     function listFunction(params) {
       return meteos.getModelEvaluations(params).then(modifyResponse);
 
       function modifyResponse(response) {
-        return {data: {items: response.data.items.map(addTrackBy)}};
+        return {data: {items: response.data.items.map(parseItems)}};
 
-        function addTrackBy(item) {
+        function parseItems(item) {
           item.trackBy = item.id;
+
+          if (item.stdout) {
+            item.result = angular.fromJson(item.stdout.replace(/'/g, '"'));
+
+            if (item.result.Matrix) {
+              item.matrix = createMatrix(item.result.Matrix);
+              delete item.result["Matrix"];
+            }
+          }
           return item;
+        }
+
+        function sum(i) {
+          return i.reduce(function(x, y) { return x + y; });
+        }
+
+        function createMatrix(matrix){
+
+          var table = [];
+          var row = [];
+          var sum_row;
+
+          angular.forEach(matrix, function(record, i) {
+            sum_row = sum(record);
+
+            angular.forEach(record, function(num, i) {
+              row[i] = num + ' (' + Math.round(num/sum_row*1000)/10 + '%)';
+            });
+
+            table[i] = row.concat();
+          });
+
+          return table;
         }
       }
     }
