@@ -147,7 +147,7 @@
 
       var div = d3.select("#meteosMenu").append("div")
                                         .style("width", "360px")
-                                        .style("height", "180px")
+                                        .style("height", "220px")
                                         .style("background", "#d6dadf")
                                         .style("position", "absolute")
                                         .style("opacity", 0)
@@ -193,7 +193,7 @@
       });
 
       var hiddenFields=['x', 'y', 'px', 'py',
-                        'index','head','fixed','icon', 'stdout',
+                        'index','head','fixed','icon',
                         'weight', 'links', 'name', 'created_at'];
 
       function createMenu(d){
